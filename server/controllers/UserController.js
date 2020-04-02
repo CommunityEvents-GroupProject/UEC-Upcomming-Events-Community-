@@ -7,6 +7,7 @@ class UserController {
     static register(req, res, next) {
         let { username, email, password } = req.body;
         let created = { username, email, password };
+        // console.log(created);
         User.findOne({
             where: {
                 email
@@ -41,6 +42,7 @@ class UserController {
 
     static login(req, res, next) {
         let { email, password } = req.body;
+        console.log(req.body);
         User.findOne({
             where: {
                 email

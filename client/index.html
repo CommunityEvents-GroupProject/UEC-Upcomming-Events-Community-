@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommunityEvents</title>
+</head>
+<body>
+    <section id="login-page">
+        <form id="login" onsubmit="login(event)">
+            <h2>Login</h2>
+            <input type="email" id="email-login-value" name="email" placeholder="email" autocomplete="false">
+            <input type="password" id="password-login-value" name="sifre" placeholder="password">
+            <input type="submit" value="login">
+        </form>
+        <span>Haven't account yet?</span> <a href="#" id="btn-register">Join us now</a>
+    </section>
+    <section id="register-page">
+        <form id="register" onsubmit="register(event)">
+            <h2>Register</h2>
+            <input type="text" id="username-register-value" name="username" placeholder="username" autocomplete="false">
+            <input type="email" id="email-register-value" name="email" placeholder="email" autocomplete="false">
+            <input type="password" id="password-register-value" name="sifre" placeholder="password">
+            <input type="submit" value="register">
+        </form>
+        <span>Already have account ?</span> <a href="#" id="btn-login">login now</a>
+    </section>
+    <section id="dashboard-page">
+        <h1>Berhasil Masuk</h1>
+        <a href="#" id="btn-logout">logout</a>
+    </section>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
