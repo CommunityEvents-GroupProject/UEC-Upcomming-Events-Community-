@@ -3,27 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>CommunityEvents</title>
 </head>
 <body>
     <section id="login-page">
-        <form id="login" onsubmit="login(event)">
-            <h2>Login</h2>
-            <input type="email" id="email-login-value" name="email" placeholder="email" autocomplete="false">
-            <input type="password" id="password-login-value" name="sifre" placeholder="password">
-            <input type="submit" value="login">
-        </form>
-        <span>Haven't account yet?</span> <a href="#" id="btn-register">Join us now</a>
+        <div class="container">
+            <div class="screen">
+                <div class="screen__content">
+                    <form class="login" id="login" onsubmit="login(event)">
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="text" class="login__input" name="email" id="email-login-value" placeholder="Email">
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="password" class="login__input" name="password" id="password-login-value" placeholder="Password">
+                        </div>
+                        <button class="button login__submit" type="submit">
+                            <span class="button__text">Log In Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>				
+                    </form>
+                    <div class="link">
+                        <span>You don't have account?</span><a href="#" id="btn-register">Join us now</a>
+                    </div>
+                    <div class="social-login">
+                        <h3>log in via</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-login__icon fab fa-instagram"></a>
+                            <a href="#" class="social-login__icon fab fa-facebook"></a>
+                            <a href="#" class="social-login__icon fab fa-twitter"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen__background">
+                    <span class="screen__background__shape screen__background__shape4"></span>
+                    <span class="screen__background__shape screen__background__shape3"></span>		
+                    <span class="screen__background__shape screen__background__shape2"></span>
+                    <span class="screen__background__shape screen__background__shape1"></span>
+                </div>		
+            </div>
+        </div>
     </section>
     <section id="register-page">
-        <form id="register" onsubmit="register(event)">
-            <h2>Register</h2>
-            <input type="text" id="username-register-value" name="username" placeholder="username" autocomplete="false">
-            <input type="email" id="email-register-value" name="email" placeholder="email" autocomplete="false">
-            <input type="password" id="password-register-value" name="sifre" placeholder="password">
-            <input type="submit" value="register">
-        </form>
-        <span>Already have account ?</span> <a href="#" id="btn-login">login now</a>
+        <div class="container">
+            <div class="screen">
+                <div class="screen__content">
+                    <form class="login" id="login" onsubmit="register(event)">
+                        <div class="login__field">
+                            <i class="login__icon fas fa-user"></i>
+                            <input type="text" class="login__input" name="username" id="username-register-value" placeholder="Username">
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-envelope"></i>
+                            <input type="text" class="login__input" name="email" id="email-register-value" placeholder="Email">
+                        </div>
+                        <div class="login__field">
+                            <i class="login__icon fas fa-lock"></i>
+                            <input type="password" class="login__input" name="password" id="password-register-value" placeholder="Password">
+                        </div>
+                        <button class="button login__submit" type="submit">
+                            <span class="button__text">Register Now</span>
+                            <i class="button__icon fas fa-chevron-right"></i>
+                        </button>				
+                    </form>
+                    <div class="link">
+                        <span>Already have account?</span><a href="#" id="btn-login">login now</a>
+                    </div>
+                    <div class="social-login">
+                        <h3>log in via</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-login__icon fab fa-instagram"></a>
+                            <a href="#" class="social-login__icon fab fa-facebook"></a>
+                            <a href="#" class="social-login__icon fab fa-twitter"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="screen__background">
+                    <span class="screen__background__shape screen__background__shape4"></span>
+                    <span class="screen__background__shape screen__background__shape3"></span>		
+                    <span class="screen__background__shape screen__background__shape2"></span>
+                    <span class="screen__background__shape screen__background__shape1"></span>
+                </div>		
+            </div>
+        </div>
     </section>
     <section id="dashboard-page">
         <h1>Berhasil Masuk</h1>
