@@ -5,6 +5,7 @@ const apiRoute = require('./apiRoutes');
 
 router.post('/login', UserController.login);
 router.post('/register', UserController.register);
+router.post("/googleSignIn", UserController.googleSignIn);
 // router.use(events);
 // router.use(apiRoute);
 
