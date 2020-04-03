@@ -1,172 +1,123 @@
-# UEC-Upcomming-Events-Community-
+# UEC (Upcomming Events Community)
 
-- baseurl: localhost://3000
+### INTRODUCTION
 
-## REGISTER User
-Create new User and returning a token If not exist in database 
+UEC is a place where you can join the most happening of events community in your local area. Below you will find a proper documentation to our API.
 
-- ### URL
+### Register [POST]
 
-    /register
+Register user into the user database.
 
-- ### Method:
+- **URL:** http://localhost:3000/register
 
-    POST
+- **Method:** POST
 
-- ### URL Params
+- **URL Params:** NONE
 
-    ### Required:
+- **Data Params:** username=[string], email=[string], password=[string]
 
-        none
+- **Success Response:**
 
-- ### Data Params
+  - **Code: 200**
 
-    username=[string],email=[string],password=[string]
+    **Content:**
 
-- ### Success Response:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJhaG1hZC51bWIxNUBnbWFpbC5jb20iLCJpYXQiOjE1ODU4OTIxNTB9.xeJUkmdHpXZWvtiyn53ojhKDX0AhwK4JkZSjQKrNWV4"
 
-    - #### Code: 201
-    - #### Content: 
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJhaG1hZC51bWIxNUBnbWFpbC5jb20iLCJpYXQiOjE1ODU4OTIxNTB9.xeJUkmdHpXZWvtiyn53ojhKDX0AhwK4JkZSjQKrNWV4"
+- **Error Response:**
 
-- ### Error Response:
+  - **Code: 500**
 
-    - #### Code: 404 NOT FOUND
-    - #### Content: 
-        { error : "Your email has already registered" }
-    #### OR
+    **Content:**
 
-    - #### Code: 500
-        Internal Server Error
-    - #### Content:
-        none
+    { error : "Internal Server Error" }
 
-## LOGIN User
+  - **Code: 400**
+
+    **Content:**
+
+    { error : "Email/password invalid" }
+
+  - **Code: 404**
+
+    **Content:**
+
+    { error : "Your email has already been registered" }
+
+### Log in [POST]
+
 Find users from database which is matched to the inputted email and password, if its found it will return a token.
 
-- ### URL
+- **URL:** http://localhost:3000/login
 
-    /login
+- **Method:** POST
 
-- ### Method:
+- **URL Params:** NONE
 
-    POST
+- **Data Params:** email=[string], password=[string]
 
-- ### URL Params
+- **Success Response:**
 
-    ### Required:
+  - **Code: 200**
 
-        none
+    **Content:**
 
-- ### Data Params
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhaG1hZC51bWIxNUBnbWFpbC5jb20iLCJpYXQiOjE1ODU1ODEzMDR9.708SNKg1VuIc4zzWezFpIYR7dYEGVX6mc-tA3i8qjBM"
 
-    email=[string],password=[string]
+- **Error Response:**
 
-- ### Success Response:
+  - **Code: 404**
 
-    - #### Code: 201
-    - #### Content: 
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhaG1hZC51bWIxNUBnbWFpbC5jb20iLCJpYXQiOjE1ODU1ODEzMDR9.708SNKg1VuIc4zzWezFpIYR7dYEGVX6mc-tA3i8qjBM"
+    **Content:**
 
-- ### Error Response:
+    { error: "Email/password invalid" }
 
-    - #### Code: 404 NOT FOUND
-    - #### Content: 
-        { error : "Username/password wrong" }
-    #### OR
+  - **Code: 400**
 
-    - #### Code: 500
-        Internal Server Error
-    - #### Content:
-        none
+    **Content:**
 
-## GET Events
+    { error: "Email/password invalid" }
+
+  - **Code: 500**
+
+    **Content:**
+
+    { error : "Internal Server Error" }
+
+### GET Events [GET]
+
 Get all events list from 3rd API return its value from data JSON
 
-- ### URL
+- **URL:** http://localhost:3000/events
 
-    /events
-- ### Method
+- **Method:** POST
 
-    GET
-- ### URL Params
+- **URL Params:** NONE
 
-    ### Required:
-        none
-    ### Optional
-        none
-- ### Data Params
-    name = [string], location = [string], status = [boolean], schedule = [date]
+- **Data Params:** name = [string], location = [string], status = [boolean], schedule = [date]
 
-- ### Success Response
+- **Success Response:**
 
-    - #### Code: 
-        201
-    - #### Content: 
-        {
-		"id": 2,
-		"name": "Menyapu",
-		"location": "Oke",
-		"status": false,
-		"due_date": "2020-04-02T09:01:21.377Z"
-	    }
+  - **Code: 200**
 
-- ### Error Response:
+    **Content:** {"id": 2, "name": "Menyapu", "location": "Oke","status": false,"due_date": "2020-04-02T09:01:21.377Z"}
 
-    - #### Code: 400
-        validation Error
-    - #### Content: 
-        { error : "title must be filled" }
-    #### OR
+- **Error Response:**
 
-    - #### Code: 500
-        Internal Server Error
-    - #### Content:
-        none
+  - **Code: 400**
 
+    **Content:**
 
-## SHOW TODO list
-Return all todos lists from data JSON
+    { error: "Title must be filled" }
 
-- ### URL
+  - **Code: 400**
 
-    /todos
-- ### Method
+    **Content:**
 
-    GET
-- ### URL Params
+    { error: "Email/password invalid" }
 
-    ### Required:
-        none
-    ### Optional
-        none
-- ### Data Params
-    title = [string], description = [string], status = [boolean], due_date = [date]
+  - **Code: 500**
 
-- ### Success Response
+    **Content:**
 
-    - #### Code: 
-        200
-    - #### Content: 
-        {
-        "id": 1,
-        "title": "Memancing",
-        "description": "Oke Test",
-        "status": false,
-        "due_date": "2020-04-02T09:01:21.377Z",
-        "createdAt": "2020-03-30T11:39:58.936Z",
-        "updatedAt": "2020-03-30T12:01:06.745Z"
-        },
-
-- ### Error Response:
-
-    - #### Code: 400
-        validation Error
-    - #### Content: 
-        { error : "title must be filled" }
-    #### OR
-
-    - #### Code: 500
-        Internal Server Error
-    - #### Content:
-        none
+    { error : "Internal Server Error" }
