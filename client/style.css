@@ -35,7 +35,7 @@ body {
 	height: 100%;
 }
 
-.link span, a {
+.link span {
     font-family: 'Nunito', sans-serif;
     margin-left: 25px;
     color: #fff;
@@ -43,6 +43,7 @@ body {
 }
 
 .link a {
+    font-family: 'Nunito', sans-serif;
     margin: 10px;
     padding: 0;
     color: #55E6C1;
@@ -192,4 +193,106 @@ body {
 
 .social-login__icon:hover {
 	transform: scale(1.5);	
+}
+
+/* dashboard page */
+#dashboard-page {
+	font-family: "Exo", "Nunito";
+	height: 100vh;
+	/* background-color: teal; */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#dashboard-page .header {
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+}
+#dashboard-page .forCards {
+	margin-top: 30px;
+	height: 50%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 3% 5% 5% 5%;
+}
+
+#dashboard-page .footer {
+	height: 30%;
+}
+
+#dashboard-page #card-movies {
+	background-image: url(https://cdn.mos.cms.futurecdn.net/by8Tr8RPFkq7LEXQQ9cLcB.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+#dashboard-page #card-sports {
+	background-image: url(https://clarion-totally-gaming.s3.eu-west-2.amazonaws.com/styles/scale_crop_750x320/s3/s3fs-public/sport.jpg?itok=0Ayksa4I);
+	background-size: cover;
+	background-position: center;
+}
+
+#dashboard-page #card-travel {
+	background-image: url(https://wallpaperaccess.com/full/185289.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+#dashboard-page .card {
+	width: 270px;
+	height: 350px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#dashboard-page #card-travel:hover, #card-movies:hover, #card-sports:hover {
+	background-color: 0 12px 16px 0 hsla(180, 100%, 50%, 0.58);
+	box-shadow: 0 15px 30px 0 hsl(0, 3%, 94%);
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+#dashboard-page .icon {
+	height: 60%;
+	border-radius: 10px 10px 0 0;
+	border-bottom: 1px solid grey;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: teal;
+}
+
+#dashboard-page .desc {
+	height: 40%;
+}
+
+#dashboard-page h4 {
+	margin-left: 20px;
+}
+
+#dashboard-page p {
+	margin-left: 20px;
+}
+
+#dashboard-page .logOut {
+	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2);
+}
+
+#dashboard-page .logOut a {
+	background-color: #85fafa;
+	box-shadow: 0 5px 10px 0 hsl(0, 2%, 9%);
+	transition: 0.5s;
+	border-radius: 10px;
+	text-decoration: none;
+	position: absolute;
+	color: #030303;
+	font-size: 20px;
+	bottom: calc(50px - -20px);
+	left: calc(50px - -105px);
+	padding: 10px;
 }

@@ -60,6 +60,51 @@ function register(event) {
         })
 }
 
+function onSignIn(googleUser) {
+    let profile = googleUser.getBasicProfile();
+    let id_token = googleUser.getAuthResponse().id_token;
+
+    $.ajax({
+        method: 'POST',
+        url: baseUrl + '/googleSignIn',
+        headers: {
+            token: id_token
+        }
+    })
+        .done(token => {
+            localStorage.setItem('token', token);
+            console.log('sign in success', token);
+            fetchTodos();
+            auth()
+        })
+        .fail(err => {
+            console.log('sign in failed', err);
+        })
+
+    console.log(id_token);
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+
+// function showMovies(event) {
+//     event.preventDefault();
+//     $.ajax({
+//         method: 'GET',
+//         url: baseUrl + '/movies',
+
+//     })
+// }
+
+// function showSport(event) {
+
+// }
+
+// function showTravel(event) {
+
+// }
+
 $('#btn-register').on('click', () => {
     $('#dashboard-page').hide();
     $('#login-page').hide();
@@ -76,3 +121,32 @@ $('#btn-logout').on('click', () => {
     localStorage.clear()
     auth()
 })
+
+// window.fbAsyncInit = function() {
+//     FB.init({
+//       appId      : '{your-app-id}',
+//       cookie     : true,
+//       xfbml      : true,
+//       version    : '{api-version}'
+//     });
+      
+//     FB.AppEvents.logPageView();   
+      
+//   };
+
+//   (function(d, s, id){
+//      var js, fjs = d.getElementsByTagName(s)[0];
+//      if (d.getElementById(id)) {return;}
+//      js = d.createElement(s); js.id = id;
+//      js.src = "https://connect.facebook.net/en_US/sdk.js";
+//      fjs.parentNode.insertBefore(js, fjs);
+//    }(document, 'script', 'facebook-jssdk'));
+
+
+// function rdToProductionHouses() {
+    
+//   }
+
+//   function rdToCasts() {
+    
+// }
