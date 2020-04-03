@@ -167,13 +167,22 @@ body {
 	color: #7875B5;
 }
 
+.header-welcome {
+	position: absolute;
+	height: 140px;
+	width: 160px;
+    text-align: center;
+    top: 20px;
+	right: 10px;
+	color: #fff;
+}
+
 .social-login {	
     position: absolute;
 	height: 140px;
 	width: 160px;
     text-align: center;
-    top: 10px;
-	bottom: 0px;
+    bottom: -20px;
 	right: 0px;
 	color: #fff;
 }
@@ -185,14 +194,14 @@ body {
 }
 
 .social-login__icon {
-	padding: 20px 5px;
+	padding: 8px 5px;
 	color: #fff;
 	text-decoration: none;	
 	text-shadow: 0px 0px 8px #7875B5;
 }
 
 .social-login__icon:hover {
-	transform: scale(1.5);	
+	transform: scale(1.25);	
 }
 
 /* dashboard page */
@@ -279,11 +288,33 @@ body {
 	margin-left: 20px;
 }
 
-#dashboard-page .logOut {
+#dashboard-page .guide {
 	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2);
+	font-family: 'Nunito';
+	cursor: pointer;
 }
 
-#dashboard-page .logOut a {
+#dashboard-page .guide i {
+	background-color: #85fafa;
+	box-shadow: 0 5px 10px 0 hsl(0, 2%, 9%);
+	transition: 0.5s;
+	border-radius: 10px;
+	text-decoration: none;
+	position: absolute;
+	color: #030303;
+	font-size: 20px;
+	bottom: calc(50px - -20px);
+	right: calc(50px - -105px);
+	padding: 10px;
+}
+
+#logout-page .logOut {
+	box-shadow: 0 0px 0px 0 rgba(0,0,0,0.2);
+	font-family: 'Nunito';
+	cursor: pointer;
+}
+
+#logout-page .logOut i {
 	background-color: #85fafa;
 	box-shadow: 0 5px 10px 0 hsl(0, 2%, 9%);
 	transition: 0.5s;
