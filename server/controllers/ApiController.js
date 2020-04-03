@@ -19,8 +19,23 @@ class ApiController {
             }
         })
 
+    }
+    static getWeatherA(req,res, next){
+        return axios.get(`api.openweathermap.org/data/2.5/weather?id=1636884&appid=${apikey}`, {
+            params: {
+                apikey: "7d562bbf6d908d3b547e7f600cfddb79",
+                id: "api.openweathermap.org"
+            }
+        })
+    }
 
-
+    static getWeatherB(req,res, next){
+        return axios.get(`api.openweathermap.org/data/2.5/weather?id=1650233&appid=${apikey}`, {
+            params: {
+                apikey: "7d562bbf6d908d3b547e7f600cfddb79",
+                id: "api.openweathermap.org"
+            }
+        })
     }
 }
 
