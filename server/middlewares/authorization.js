@@ -1,6 +1,6 @@
 const { Event } = require('../models');
 
-function authoriation(req, res, next) {
+function authorization(req, res, next) {
     Event.findOne({
         where: {
             id: req.params.id
@@ -29,4 +29,4 @@ function authoriation(req, res, next) {
 }
 
 
-module.exports = authoriation;
+module.exports = authorization;
