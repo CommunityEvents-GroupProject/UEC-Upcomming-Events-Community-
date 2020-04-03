@@ -22,6 +22,35 @@ class ApiController {
 
 
     }
+
+    static getWeatherA(req, res, next) {
+        axios.get("/api.openweathermap.org/data/2.5/weather", {
+            params: {
+                "q": "magelang",
+                "appid": "7d562bbf6d908d3b547e7f600cfddb79"
+            }
+        }).then(result => {
+            console.log(result)
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+    static getWeatherB(req, res, next) {
+        axios.get(`/api.openweathermap.org/data/2.5/weather`, {
+            params: {
+                q: "Banjar",
+                appid: "7d562bbf6d908d3b547e7f600cfddb79"
+            }
+        }).then(result => {
+            console.log(result)
+        }).catch(err => {
+            console.log(err);
+        })
+    }
+
+    static getNBAGames(req, res, next) {
+        return axios.get("https://www.balldontlie.io/api/v1/games")
+    }
 }
 
 module.exports = ApiController
