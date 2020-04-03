@@ -10,13 +10,19 @@ function auth() {
         $('#login-page').hide();
         $('#register-page').hide();
         $('#logout-page').show();
-        $('#movies-page').show();
+        $('#back-dashboard').hide();
+        $('#movies-page').hide();
+        $('#sports-page').hide();
+        $('#travel-page').hide();
     } else {
         $('#dashboard-page').hide();
         $('#login-page').show();
         $('#register-page').hide();
         $('#logout-page').hide();
+        $('#back-dashboard').hide();
         $('#movies-page').hide();
+        $('#sports-page').hide();
+        $('#travel-page').hide();
     }
 }
 
@@ -96,17 +102,17 @@ function showMovies(event) {
     event.preventDefault();
     var cards = $('.card');
 
-cards.each( (index, card) => {
-  $(card).prepend("<div class='shineLayer'></div>")
-});
+    cards.each( (index, card) => {
+    $(card).prepend("<div class='shineLayer'></div>")
+    });
 
-$(".card").mousemove( function(event) {
-  
-  var card = this;
-  var mouseCoord = {
-    x: event.offsetX,
-    y: event.offsetY
-  };
+    $(".card").mousemove( function(event) {
+    
+    var card = this;
+    var mouseCoord = {
+        x: event.offsetX,
+        y: event.offsetY
+    };
   
   //cleanup
   mouseCoord.x = mouseCoord.x < 0 ? 0 : mouseCoord.x;
@@ -163,19 +169,12 @@ $(".card").mouseleave( function(event) {
 });
 }
 
-function showSport(event) {
-
-}
-
-function showTravel(event) {
-
-}
-
 $('#btn-register').on('click', () => {
     $('#dashboard-page').hide();
     $('#login-page').hide();
     $('#register-page').show();
     $('#logout-page').hide();
+    $('#back-dashboard').hide();
 })
 
 $('#btn-login').on('click', () => {
@@ -183,10 +182,15 @@ $('#btn-login').on('click', () => {
     $('#login-page').show();
     $('#register-page').hide();
     $('#logout-page').hide();
+    $('#back-dashboard').hide();
 })
 
 $('#btn-logout').on('click', () => {
     localStorage.clear()
+    auth()
+})
+
+$('#btn-back').on('click', () => {
     auth()
 })
 
@@ -196,16 +200,46 @@ $('#btn-guide').on('click', () => {
             <button onclick="showDashboard()">back</button>
         </div>
     `)
-    $('#dashboard-page').hide();
-    $('#login-page').hide();
-    $('#register-page').hide();
-    $('#guide').hide();
-    $('#logout-page').hide();
+    // $('#dashboard-page').hide();
+    // $('#login-page').hide();
+    // $('#register-page').hide();
+    // $('#guide').hide();
+    // $('#logout-page').hide();
 })
 
 $('#card-movies').on('click', () => {
-    showMovies(event);
+    $('#dashboard-page').hide();
+    $('#login-page').hide();
+    $('#register-page').hide();
+    $('#logout-page').show();
+    $('#movies-page').show();
+    $('#sports-page').hide();
+    $('#travel-page').hide();
+    $('#back-dashboard').show()
+})
+
+$('#card-sports').on('click', () => {
+    $('#dashboard-page').hide();
+    $('#login-page').hide();
+    $('#register-page').hide();
+    $('#logout-page').show();
+    $('#movies-page').hide();
+    $('#sports-page').show();
+    $('#travel-page').hide();
+    $('#back-dashboard').show();
+})
+
+$('#card-travel').on('click', () => {
+    $('#dashboard-page').hide();
+    $('#login-page').hide();
+    $('#register-page').hide();
+    $('#logout-page').show();
+    $('#movies-page').hide();
+    $('#sports-page').hide();
+    $('#travel-page').show();
+    $('#back-dashboard').show();
 })
 
 //movies-page
 
+$("#movies-page").animate({ scrollDown: $("#card-movies").scrollDown() }, 1000);
