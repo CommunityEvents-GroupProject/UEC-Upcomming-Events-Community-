@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="152211107247-gm2kk1r9v51aj4u6hebiluml2v4iahrc.apps.googleusercontent.com">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel=”icon” href="https://i.ibb.co/YW0yVLv/logoUEC.png" alt="logoUEC">
     <title>CommunityEvents</title>
 </head>
 <body>
@@ -34,7 +36,7 @@
                         <div class="social-icons">
                             <a href="#" class="social-login__icon fab fa-instagram"></a>
                             <a href="#" class="social-login__icon fab fa-facebook"></a>
-                            <a href="#" class="social-login__icon fab fa-twitter"></a>
+                            <a href="#" class="social-login__icon fab fa-google" data-onSuccess="onSignIn" onclick="onSignIn(googleUser)"></a>
                         </div>
                     </div>
                 </div>
@@ -77,7 +79,7 @@
                         <div class="social-icons">
                             <a href="#" class="social-login__icon fab fa-instagram"></a>
                             <a href="#" class="social-login__icon fab fa-facebook"></a>
-                            <a href="#" class="social-login__icon fab fa-twitter"></a>
+                            <a href="#" class="social-login__icon fab fa-google"></a>
                         </div>
                     </div>
                 </div>
@@ -91,8 +93,38 @@
         </div>
     </section>
     <section id="dashboard-page">
-        <h1>Berhasil Masuk</h1>
-        <a href="#" id="btn-logout">logout</a>
+        <div class="header">
+            <h1 style="color: #85fafa;">Welcome to</h1>
+            <img src="https://i.ibb.co/YW0yVLv/logoUEC.png" alt="">
+        </div>
+        <div class="forCards">
+            <div onclick="showTravel(event)" class="card" id="card-travel">
+                <div class="desc">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div onclick="showMovies(event)" class="card" id="card-movies">
+                <div class="desc">
+                </div>
+            </div>
+            <div onclick="showSport(event)" class="card" id="card-sports">
+                <div class="desc">
+                    <img src="" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="logOut">
+            <a href="#" id="btn-logout">logout</a>
+        </div>
+    </section>
+    <section id="movies-page">
+
+    </section>
+    <section id="sports-page">
+
+    </section>
+    <section id="travel-page">
+
     </section>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
