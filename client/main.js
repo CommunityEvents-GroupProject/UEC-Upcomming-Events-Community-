@@ -14,6 +14,8 @@ function auth() {
         $('#movies-page').hide();
         $('#sports-page').hide();
         $('#travel-page').hide();
+        $('#moviesApi').hide();
+        $('#sportsApi').hide();
     } else {
         $('#dashboard-page').hide();
         $('#login-page').show();
@@ -23,6 +25,8 @@ function auth() {
         $('#movies-page').hide();
         $('#sports-page').hide();
         $('#travel-page').hide();
+        $('#moviesApi').hide();
+        $('#sportsApi').hide();
     }
 }
 
@@ -107,20 +111,58 @@ function logout() {
     });
 }
 
-function getMovies(event) {
-    event.preventDefault();
+function getMovies() {
     $.ajax({
         method: 'GET',
         url: baseUrl + '/events',
     })
         .done(data => {
             data.events.map(el => {
-                $('#card-movies')
+                if(el.location == 'PLATINUM CINEPLEX ARTOS MALL, Magelang' || el.location == 'NSC Baninza Banjar') {
+                    showEvent(el)
+                }
             })
         })
         .fail(err => {
             console.log(err)
         })
+}
+
+function getSport() {
+    $.ajax({
+        method: 'GET',
+        url: baseUrl + '/events',
+    })
+        .done(data => {
+            data.events.map(el => {
+                if(el.location !== 'PLATINUM CINEPLEX ARTOS MALL, Magelang' && el.location !== 'NSC Baninza Banjar') {
+                    showSport(el)
+                }
+            })
+        })
+        .fail(err => {
+            console.log(err)
+        })
+}
+
+function showEvent(el) {
+    $('#moviesApi tbody').append(
+        "<tr>" +
+        `<td>${el.name}</td>` +
+        `<td>${el.location}</td>` +
+        `<td>${new Date(el.schedule).toDateString()}</td>` +
+        "</tr>"
+    )
+}
+
+function showSport(el) {
+    $('#sportsApi tbody').append(
+        "<tr>" +
+        `<td>${el.name}</td>` +
+        `<td>${el.location}</td>` +
+        `<td>${new Date(el.schedule).toDateString()}</td>` +
+        "</tr>"
+    )
 }
 
 function showMovies(event) {
@@ -236,6 +278,7 @@ $('#card-movies').on('click', () => {
     $('#sports-page').hide();
     $('#travel-page').hide();
     $('#back-dashboard').show()
+    $('#moviesApi').hide()
 })
 
 $('#card-sports').on('click', () => {
@@ -258,6 +301,30 @@ $('#card-travel').on('click', () => {
     $('#sports-page').hide();
     $('#travel-page').show();
     $('#back-dashboard').show();
+})
+
+$('#getMovie').on('click', () => {
+    $('#dashboard-page').hide();
+    $('#login-page').hide();
+    $('#register-page').hide();
+    $('#logout-page').hide();
+    $('#movies-page').show();
+    $('#sports-page').hide();
+    $('#travel-page').hide();
+    $('#back-dashboard').show()
+    $('#moviesApi').show()
+})
+
+$('#getSport').on('click', () => {
+    $('#dashboard-page').hide();
+    $('#login-page').hide();
+    $('#register-page').hide();
+    $('#logout-page').hide();
+    $('#movies-page').hide();
+    $('#sports-page').show();
+    $('#travel-page').hide();
+    $('#back-dashboard').show()
+    $('#sportsApi').show()
 })
 
 //movies-page
