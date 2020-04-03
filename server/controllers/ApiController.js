@@ -26,7 +26,7 @@ class ApiController {
     static getWeatherA(req, res, next) {
         axios.get("/api.openweathermap.org/data/2.5/weather", {
             params: {
-                "q": "magelang",
+                "q": "Jakarta",
                 "appid": "7d562bbf6d908d3b547e7f600cfddb79"
             }
         }).then(result => {

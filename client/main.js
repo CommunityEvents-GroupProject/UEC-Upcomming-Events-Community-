@@ -82,9 +82,10 @@ function onSignIn(googleUser) {
         }
     })
         .done(token => {
+            console.log(token);
+            
             localStorage.setItem('token', token);
             console.log('sign in success', token);
-            fetchTodos();
             auth()
         })
         .fail(err => {
@@ -98,10 +99,33 @@ function onSignIn(googleUser) {
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
 
+function logout() {
+    localStorage.clear()
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+}
+
+function getMovies(event) {
+    event.preventDefault();
+    $.ajax({
+        method: 'GET',
+        url: baseUrl + '/events',
+    })
+        .done(data => {
+            data.events.map(el => {
+                $('#card-movies')
+            })
+        })
+        .fail(err => {
+            console.log(err)
+        })
+}
+
 function showMovies(event) {
     event.preventDefault();
     var cards = $('.card');
-
     cards.each( (index, card) => {
     $(card).prepend("<div class='shineLayer'></div>")
     });
@@ -186,26 +210,22 @@ $('#btn-login').on('click', () => {
 })
 
 $('#btn-logout').on('click', () => {
+    logout();
     localStorage.clear()
-    auth()
+    $('#dashboard-page').hide();
+    $('#login-page').show();
+    $('#register-page').hide();
+    $('#logout-page').hide();
+    $('#movies-page').hide();
+    $('#sports-page').hide();
+    $('#travel-page').hide();
+    $('#back-dashboard').hide();
 })
 
 $('#btn-back').on('click', () => {
     auth()
 })
 
-$('#btn-guide').on('click', () => {
-    $('.guide').append(`
-        <div id="btn-back">
-            <button onclick="showDashboard()">back</button>
-        </div>
-    `)
-    // $('#dashboard-page').hide();
-    // $('#login-page').hide();
-    // $('#register-page').hide();
-    // $('#guide').hide();
-    // $('#logout-page').hide();
-})
 
 $('#card-movies').on('click', () => {
     $('#dashboard-page').hide();
