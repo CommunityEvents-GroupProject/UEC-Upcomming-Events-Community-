@@ -9,10 +9,12 @@ function auth() {
         $('#dashboard-page').show();
         $('#login-page').hide();
         $('#register-page').hide();
+        $('#logout-page').show();
     } else {
         $('#dashboard-page').hide();
         $('#login-page').show();
         $('#register-page').hide();
+        $('#logout-page').hide();
     }
 }
 
@@ -109,17 +111,28 @@ $('#btn-register').on('click', () => {
     $('#dashboard-page').hide();
     $('#login-page').hide();
     $('#register-page').show();
+    $('#logout-page').hide();
 })
 
 $('#btn-login').on('click', () => {
     $('#dashboard-page').hide();
     $('#login-page').show();
     $('#register-page').hide();
+    $('#logout-page').hide();
 })
 
 $('#btn-logout').on('click', () => {
     localStorage.clear()
     auth()
+})
+
+$('#btn-guide').on('click', () => {
+    $('.guide').append(`
+        <div id="guide-form">
+            <h2>Guidance<h2>
+            <button onclick="showDashboard()"></button>
+        </div>
+    `)
 })
 
 // window.fbAsyncInit = function() {

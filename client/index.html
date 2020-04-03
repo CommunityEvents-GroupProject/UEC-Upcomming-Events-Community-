@@ -31,12 +31,13 @@
                     <div class="link">
                         <span>You don't have account?</span><a href="#" id="btn-register">Join us now</a>
                     </div>
+                    <div class="header-welcome">
+                        <h3>Welcome to UEC</h3>
+                    </div>
                     <div class="social-login">
-                        <h3>log in via</h3>
+                        <h3>Or login with :</h3>
                         <div class="social-icons">
-                            <a href="#" class="social-login__icon fab fa-instagram"></a>
-                            <a href="#" class="social-login__icon fab fa-facebook"></a>
-                            <a href="#" class="social-login__icon fab fa-google" data-onSuccess="onSignIn" onclick="onSignIn(googleUser)"></a>
+                            <a href="#" class="social-login__icon g-signin2" data-onSuccess="onSignIn" onclick="onSignIn(googleUser)"></a>
                         </div>
                     </div>
                 </div>
@@ -74,13 +75,8 @@
                     <div class="link">
                         <span>Already have account?</span><a href="#" id="btn-login">login now</a>
                     </div>
-                    <div class="social-login">
-                        <h3>log in via</h3>
-                        <div class="social-icons">
-                            <a href="#" class="social-login__icon fab fa-instagram"></a>
-                            <a href="#" class="social-login__icon fab fa-facebook"></a>
-                            <a href="#" class="social-login__icon fab fa-google"></a>
-                        </div>
+                    <div class="header-welcome">
+                        <h3>Welcome to UEC</h3>
                     </div>
                 </div>
                 <div class="screen__background">
@@ -113,8 +109,8 @@
                 </div>
             </div>
         </div>
-        <div class="logOut">
-            <a href="#" id="btn-logout">logout</a>
+        <div class="guide">
+            <i id="btn-guide" class="fas fa-address-card"> about us</i>
         </div>
     </section>
     <section id="movies-page">
@@ -125,6 +121,11 @@
     </section>
     <section id="travel-page">
 
+    </section>
+    <section id="logout-page">
+        <div class="logOut">
+            <i id="btn-logout" class="fas fa-sign-out-alt"> logout</i>
+        </div>
     </section>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
