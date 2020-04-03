@@ -101,7 +101,6 @@ function onSignIn(googleUser) {
 function showMovies(event) {
     event.preventDefault();
     var cards = $('.card');
-
     cards.each( (index, card) => {
     $(card).prepend("<div class='shineLayer'></div>")
     });
